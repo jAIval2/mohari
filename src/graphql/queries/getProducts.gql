@@ -1,0 +1,30 @@
+# src/graphql/queries/getProducts.gql
+query getProducts($first: Int!) {
+  products(first: $first) {
+    edges {
+      node {
+        id
+        title
+        handle
+        description
+        images(first: 1) {
+          edges {
+            node {
+              altText
+              transformedSrc
+            }
+          }
+        }
+        variants(first: 1) {
+          edges {
+            node {
+              price {
+                amount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
